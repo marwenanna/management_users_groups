@@ -35,5 +35,15 @@ Others:
 - Validation constraints/rules
 - Bootstrap 4
 
+#Setup
+If you've just downloaded the code, congratulations!
+To get it working, follow these steps:
 
+Setup .env.test
 
+First, make sure you have an .env file (you should). If you don't, copy .env.test to get it.
+
+Next, look at the configuration and make any adjustments you need (like database_password).
+
+Download Composer dependencies
+Make sure you have Composer installed and then run:    composer install
