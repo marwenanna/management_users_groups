@@ -31,10 +31,8 @@ Relationship : Many To One between Users and Groups
 - One group has many users
 
 DataFixtures:
-
--AppFixtures
-
--UserFixtures
+- AppFixtures
+- UserFixtures
 
 Others:
 - Exploitation facker(Faker is a PHP library that generates fake data for you)
