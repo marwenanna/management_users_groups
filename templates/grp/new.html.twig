@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr>
+    {% if editMode %}
+        <h4>Modify Group</h4>
+    {% else %}
+        <h4>Create Group</h4>
+    {% endif %}
+
+    <hr>
+    {{ form_start(formGrp) }}
+
+    {{ form_row(formGrp.name, {'attr':{'placeholder':"Enter name group "}}) }}
+
+    <button type="submit" class="btn btn-info">
+        {% if editMode %}
+            Modify
+        {% else %}
+            Save
+        {% endif %}
+    </button>
+
+    {{ form_end(formGrp) }}
+{% endblock %}

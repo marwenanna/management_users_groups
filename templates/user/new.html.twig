@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <hr>
+    {% if editMode %}
+        <h4>Modify User</h4>
+    {% else %}
+        <h4>Create User</h4>
+    {% endif %}
+
+    <hr>
+    {{ form_start(formUser) }}
+
+    {{ form_row(formUser.firstname, {'attr':{'placeholder':"Enter your First name "}}) }}
+    {{ form_row(formUser.lastname, {'attr':{'placeholder':"Enter your Lirst name "}}) }}
+    {{ form_row(formUser.email, {'attr':{'placeholder':"Enter your E-mail adress "}})}}
+    {{ form_row(formUser.grp)}}
+    {{ form_row(formUser.state) }}
+    {{ form_row(formUser.date)}}
+
+
+
+
+
+    <button type="submit" class="btn btn-info">
+        {% if editMode %}
+            Modify
+        {% else %}
+            Save
+        {% endif %}
+    </button>
+
+    {{ form_end(formUser) }}
+
+
+
+{% endblock %}

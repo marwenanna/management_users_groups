@@ -1,0 +1,134 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List Of Groups !{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('info-group') %}
+        <br>
+        <div class="fade animated flash">
+            <div class="alert alert-dismissible alert-primary">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="text-center">{{ message }}</div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name group</th>
+                <th class="text-center" scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for grp in grps %}
+            <tr>
+                <th scope="row">{{ grp.id }}</th>
+                <td>{{ grp.name }}</td>
+                <td class="text-center">
+                    <a href="" class="btn btn-warning" data-toggle="modal" data-target="#myModal{{ grp.id }}">Show</a>
+
+                    <!-- The Modal show of display -->
+                    <div class="modal fade animated flipInX" tabindex="-1" role="dialog" id="myModal{{ grp.id }}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Group Information</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <table class="table table-sm">
+                                        <thead>
+
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">Id</th>
+                                            <td>{{ grp.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Name Group</th>
+                                            <td>{{ grp.name }}</td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <a href="{{ path('group_edit', { 'id': grp.id }) }}"  class="btn btn-info" >Modify</a>
+
+
+
+                    <a href="" class="btn btn-danger" data-toggle="modal"  data-target="#myModalDelete{{ grp.id }}">Delete</a>
+                    <!-- The Modal show of delete -->
+                    <div class="modal fade animated flash" tabindex="-1" role="dialog" id="myModalDelete{{ grp.id }}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Group Information</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <p>
+                                        <strong >Sorry, you can not delete this group because it is included among the users' choices.
+                                                See the list of users.
+                                        </strong>
+                                    </p>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+        <a href="{{ path('group_new') }}"  class="btn btn-success" > + Add Group</a>
+
+    </div>
+    <br>
+
+    <div class="pagination justify-content-center">
+        <div>{{ knp_pagination_render(grps) }}</div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}List Of Users !{% endblock %}
+
+{% block body %}
+
+    {% for message in app.flashes('info') %}
+        <br>
+        <div class="fade animated flash">
+            <div class="alert alert-dismissible alert-info">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="text-center">{{ message }}</div>
+            </div>
+        </div>
+    {% endfor %}
+
+    {% for message in app.flashes('delete') %}
+        <br>
+        <div class="fade animated flash">
+            <div class="alert alert-dismissible alert-danger">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <div class="text-center">{{ message }}</div>
+            </div>
+        </div>
+    {% endfor %}
+
+
+
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th class="text-center" scope="col">Email</th>
+                <th scope="col">State</th>
+                <th scope="col">Creation Date</th>
+                <th class="text-center"scope="col">User included in Group</th>
+                <th class="text-center" scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+            <tr>
+                <th scope="row">{{ user.id }}</th>
+                <td>{{ user.Firstname }}</td>
+                <td>{{ user.Lastname }}</td>
+                <td>{{ user.email }}</td>
+                <td class="text-center">{% if user.state %}Yes {% else %} No{% endif %}</td>
+                <td>{{ user.date | date("m/d/Y", false) }}</td>
+
+                <td class="text-center">{{ user.grp.name }}</td>
+                <td>
+                    <a href="" class="btn btn-warning" data-toggle="modal" data-target="#myModal{{ user.id }}">Show</a>
+
+                    <!-- The Modal show -->
+                    <div class="modal fade animated rotateIn" tabindex="-1" role="dialog" id="myModal{{ user.id }}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">User Information</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <table class="table table-sm">
+                                        <thead>
+
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">Id</th>
+                                            <td>{{ user.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Firt Name</th>
+                                            <td>{{ user.Firstname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Last Name</th>
+                                            <td>{{ user.Lastname }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email</th>
+                                            <td>{{ user.email }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">State</th>
+                                            <td>{% if user.state %}Yes {% else %} No{% endif %}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Creation Date</th>
+                                            <td>{{ user.date | date("m/d/Y", false) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">User included in Group</th>
+                                            <td>{{  user.grp.name  }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <a href="{{ path('user_edit', { 'id': user.id }) }}"  class="btn btn-info" >Modify</a>
+                    <a href="{{ path('user_delete', { 'id': user.id }) }}"  class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+        <a href="{{ path('user_new') }}"  class="btn btn-success" >+ Add User</a>
+
+    </div>
+    <br>
+
+    <div class="pagination justify-content-center">
+        <div>{{ knp_pagination_render(users) }}</div>
+    </div>
+
+{% endblock %}
