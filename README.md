@@ -33,6 +33,7 @@ Relationship : Many To One between Users and Groups
 DataFixtures:
 
 -AppFixtures
+
 -UserFixtures
 
 Others:
