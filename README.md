@@ -8,7 +8,7 @@
 - Create a user who is included in a group
 - Check if this user exits and is active
 - Modify the list of users of a group
--Pagination the list of groups and users
+- Pagination the list of groups and users
 
 
 Entities:
