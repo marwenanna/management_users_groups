@@ -35,7 +35,7 @@ Others:
 - Validation constraints/rules
 - Bootstrap 4
 
-#Setup
+# Setup
 If you've just downloaded the code, congratulations!
 To get it working, follow these steps:
 
