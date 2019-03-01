@@ -1,4 +1,4 @@
-# management_users_groups with Symfony 4
+# Management_users_groups with Symfony 4
  API which allow users and groups management 
  Out of scope: authentication, and roles management; forms and views
  
