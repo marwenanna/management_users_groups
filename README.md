@@ -30,7 +30,12 @@ Relationship : Many To One between Users and Groups
 - Many users have one group
 - One group has many users
 
+DataFixtures:
+-AppFixtures
+-UserFixtures
+
 Others:
+- Exploitation facker(Faker is a PHP library that generates fake data for you)
 - Message level animation (after error, after operation CRUD , Modal) 
 - Validation constraints/rules
 - Bootstrap 4
@@ -46,4 +51,20 @@ First, make sure you have an .env file (you should). If you don't, copy .env.tes
 Next, look at the configuration and make any adjustments you need (like database_password).
 
 Download Composer dependencies
-Make sure you have Composer installed and then run:    composer install
+Make sure you have Composer installed and then run:    
+
+composer install
+
+You may alternatively need to run php composer.phar install, depending on how you installed Composer.
+
+
+# Setup the Database
+Again, make sure .env is setup for your computer. Then, create the database and the schema!
+php bin\console doctrine:database:create
+php bin\console doctrine:migrations:migrate
+
+php bin/console server:run
+
+Now check out the site at http://localhost:8000
+
+Have fun!
