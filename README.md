@@ -4,7 +4,7 @@
  Out of scope: authentication, and roles management; forms and views
  
  User Stories:
-- Authentication (Login and registre pages)
+- Authentication (Login , registre pages and logout option)
 - Create a user who is included in a group
 - Check if this user exits and is active
 - Modify the list of users of a group
