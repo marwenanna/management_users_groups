@@ -53,10 +53,7 @@ Next, look at the configuration and make any adjustments you need (like database
 Download Composer dependencies
 Make sure you have Composer installed and then run:    
 
-composer install
-
-You may alternatively need to run php composer.phar install, depending on how you installed Composer.
-
+composer install https://getcomposer.org/download/
 
 # Setup the Database
 Again, make sure .env is setup for your computer. Then, create the database and the schema!
