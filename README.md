@@ -35,7 +35,7 @@ DataFixtures:
 - UserFixtures
 
 Others:
-- Exploitation facker(Faker is a PHP library that generates fake data for you)
+- Exploitation facker(Faker is a PHP library that generates fake data for you https://github.com/fzaninotto/Faker)
 - Message level animation (after error, after operation CRUD , Modal) 
 - Validation constraints/rules
 - Bootstrap 4
