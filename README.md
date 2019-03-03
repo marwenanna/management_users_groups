@@ -32,7 +32,7 @@ Relationship : Many To One between Users and Groups
 - Many users have one group
 - One group has many users
 
-DataFixtures:
+DataFixtures:(Fixtures or test data allow the developer to initialize the data in the database in a known state)
 - AppFixtures
 - UserFixtures
 
@@ -59,10 +59,10 @@ composer install https://getcomposer.org/download/
 
 # Setup the Database
 Again, make sure .env is setup for your computer. Then, create the database and the schema!
-php bin\console doctrine:database:create
-php bin\console doctrine:migrations:migrate
-
-php bin/console server:run
+-php bin\console doctrine:database:create
+-php bin\console doctrine:migrations:migrate
+-Start your fixtures : php bin/console doctrine:fixtures:load
+-php bin/console server:run
 
 Now check out the site at http://localhost:8000
 
