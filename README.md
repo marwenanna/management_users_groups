@@ -21,9 +21,9 @@ API methods:
 - /login/ -   connexion
 - /users/ - fetch(retrieve) list of users
 - /users/ - create a user
-- /users/id/ - fetch info of a user
+- /users/id/ - fetch info of a user using modal
 - /users/id/ - modify users info
-- /users/ -  delete users using modal
+- /users/ -  delete users
 - /groups/ - fetch list of groups
 - /groups/ - create a group
 - /groups/id/ - modify group info
