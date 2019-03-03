@@ -62,7 +62,7 @@ Again, make sure .env is setup for your computer. Then, create the database and 
 
 - php bin\console doctrine:database:create
 - php bin\console doctrine:migrations:migrate
-- Start your fixtures : php bin/console doctrine:fixtures:load
+- Launch your fixtures : php bin/console doctrine:fixtures:load
 - php bin/console server:run
 
 Now check out the site at http://localhost:8000
